@@ -72,6 +72,7 @@ import time
 # print(list_number)
 # end = time.time()
 # print(f"Run time: {(end - start) * 10 ** 3:.03f}ms")
+
 # 3 - chap -> find key in box
 
 # 4  - chap -> quicksort
@@ -141,4 +142,121 @@ import time
 
 # 7 - chap -> Dijkstra's algorithm
 
+# infinity = float('inf')
+# costs = {}
+# costs['a'] = 6
+# costs['b'] = 2
+# costs['fin'] = infinity
+#
+# graph = {}
+#
+# graph['start'] = {}
+# graph['start']['a'] = 6
+# graph['start']['b'] = 2
+#
+# graph['a'] = {}
+# graph['a']['fin'] = 1
+#
+# graph['b'] = {}
+# graph['b']['a'] = 3
+# graph['b']['fin'] = 5
+#
+# graph['fin'] = {}
+#
+# parents = {}
+# parents['a'] = 'start'
+# parents['b'] = 'start'
+# parents['fin'] = None
+#
+# processed = []
+#
+#
+# def find_lowest_cost_node(costs):
+#     lowest_cost = float('inf')
+#     lowest_cost_node = None
+#     for node in costs:
+#         cost = costs[node]
+#         if cost < lowest_cost and node not in processed:
+#             lowest_cost = cost
+#             lowest_cost_node = node
+#     return lowest_cost_node
+#
+#
 # node = find_lowest_cost_node(costs)
+# while node != None:
+#     cost = costs[node]
+#     neighbors = graph[node]
+#     for n in neighbors.keys():
+#         new_cost = cost + neighbors[n]
+#         if costs[n] > new_cost:
+#             costs[n] = new_cost
+#             parents[n] = node
+#     processed.append(node)
+#     node = find_lowest_cost_node(costs)
+#
+# print(costs['fin'])
+# print(parents['fin'])
+
+balance = 0
+cost_list = []
+income_list = []
+while True:
+    balance = 0
+    method = input('enter method: ')
+    if method == 'reg':
+        method = input('enter method reg: ')
+        if method == 'pay':
+            name = input('enter income name: ')
+            price = input('enter income price: ')
+            info = {
+                'name': name,
+                'price': int(price)
+            }
+            income_list.append(info)
+        elif method == 'cost':
+            name = input('enter cost name: ')
+            price = input('enter cost price: ')
+            info = {
+                'name': name,
+                'price': int(price)
+            }
+            cost_list.append(info)
+    elif method == 'del':
+        method = input('enter method del: ')
+        if method == 'pay':
+            name = input('enter income name: ')
+            for item in income_list:
+                if item['name'] == name:
+                    index = income_list.index(item)
+                    income_list.pop(index)
+        elif method == 'cost':
+            name = input('enter cost name: ')
+            for item in cost_list:
+                if item['name'] == name:
+                    index = cost_list.index(item)
+                    cost_list.pop(index)
+    elif method == 'change':
+        method = input('enter method change: ')
+        if method == 'pay':
+            name = input('enter income name: ')
+            for item in income_list:
+                if item['name'] == name:
+                    new_name = input('enter income new name: ')
+                    new_price = input('enter income new price: ')
+                    item['name'] = new_name
+                    item['price'] = int(new_price)
+        elif method == 'cost':
+            name = input('enter cost name: ')
+            for item in cost_list:
+                if item['name'] == name:
+                    new_name = input('enter cost new name: ')
+                    new_price = input('enter cost new price: ')
+                    item['name'] = new_name
+                    item['price'] = int(new_price)
+    for item in income_list:
+        balance += item['price']
+    for item in cost_list:
+        balance -= item['price']
+    print(income_list)
+    print(cost_list)
+    print(balance)
