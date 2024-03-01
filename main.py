@@ -1,6 +1,7 @@
 # 1 - chap -> binary search
 
-# import time
+import time
+
 #
 # index = 0
 # index_1 = 0
@@ -42,6 +43,12 @@
 
 # 2 - chap -> sort
 
+#
+
+#
+#
+#
+#
 # def findSmallest(arr):
 #     smallest = arr[0]
 #     smallest_index = 0
@@ -58,9 +65,14 @@
 #         smallest = findSmallest(arr)
 #         newArr.append(arr.pop(smallest))
 #     return newArr
-#
-#
-# print(selectionSort([5, 6, 3, 7, 1]))
+
+# start = time.time()
+# print(selectionSort(list_number))
+# list_number.sort()
+# print(list_number)
+# end = time.time()
+# print(f"Run time: {(end - start) * 10 ** 3:.03f}ms")
+# 3 - chap -> find key in box
 
 # 4  - chap -> quicksort
 
@@ -76,8 +88,57 @@
 #
 # print(quickSort([4, 10, 5, 2, 3]))
 
+# 5 - chap -> hash tables
+
 # 6 - chap -> breath-first / search
+#
+# from collections import deque
+#
+# graph = {}
+#
+# graph['you'] = ['alice', 'bob', 'claire']
+# graph['bob'] = ['anuj', 'peggy']
+# graph['alice'] = ['peggy']
+# graph['claire'] = ['thom', 'jonny']
+# graph['anuj'] = []
+# graph['peggy'] = []
+# graph['thom'] = []
+# graph['jonny'] = []
+#
+# search_queue = deque()
+# search_queue += graph['you']
+#
+#
+# def person_is_seller(name):
+#     return name[-1] == 'm'
+#
+# while search_queue:
+#     person = search_queue.popleft()
+#     if person_is_seller(person):
+#         print(f'{person} is a mango seller')
+#     else:
+#         search_queue += graph[person]
+#         print(False)
+#
+#
+# def search(name):
+#     search_queue = deque()
+#     search_queue += graph[name]
+#     searched = []
+#     while search_queue:
+#         person = search_queue.popleft()
+#         if person not in searched:
+#             if person_is_seller(person):
+#                 print(f'{person} is a mango seller')
+#                 return True
+#             else:
+#                 search_queue += graph[person]
+#                 searched.append(person)
+#     return False
+#
+#
+# search('you')
 
-graph = {}
+# 7 - chap -> Dijkstra's algorithm
 
-graph['you'] = ['alice', 'bob', 'claire']
+# node = find_lowest_cost_node(costs)
